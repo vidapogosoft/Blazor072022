@@ -1,0 +1,40 @@
+﻿@page "/persona/crear"
+@inject NavigationManager nm
+@inject Repositorios.PersonaRepositorio  repo
+
+
+<div style="text-align:center">
+    <h3>Registrados: Registro de Datos</h3>
+</div>
+
+<Formulario OnValidSubmit="CrearRegistro" persona="NewRegistrado"  ></Formulario>
+
+
+@code {
+
+    private Model.DTOPersona NewRegistrado = new Model.DTOPersona();
+
+
+    private async Task CrearRegistro()
+    {
+
+        var httpResponse = await repo.PostRegistrado("http://localhost/apidemo1/api/Personaget", NewRegistrado);
+
+
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.HttpResponseMessage.Content.ReadAsStringAsync();
+
+            Console.WriteLine(body);
+
+            nm.NavigateTo("/persona/crear");
+        }
+        else
+        {
+            nm.NavigateTo("/persona/listar");
+        }
+
+    }
+
+
+}

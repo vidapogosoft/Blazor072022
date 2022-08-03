@@ -1,0 +1,41 @@
+﻿@page "/persona/actualizar/{IdPersona:int}"
+@inject NavigationManager nm
+@inject Repositorios.PersonaRepositorio  repo
+
+<div class="form-group mx-sm-3 mb-2" style="text-align:center">
+<h3>Editar Datos de registrado</h3>
+</div>
+
+@if (registradoEdit == null)
+{
+    <span>CARGANDO......</span>
+}
+else
+{
+    <Formulario persona="registradoEdit"></Formulario>
+}
+
+
+@code {
+
+    [Parameter] public int IdPersona { get; set; }
+
+    private Model.DTOPersona registradoEdit;
+
+
+    protected async override Task OnInitializedAsync()
+    {
+
+        var httResponse = await repo.GetRegistrados<Model.DTOPersona>("http://localhost/apidemo1/api/Personaget/IdPersona/" + IdPersona);
+
+        if (httResponse.Error)
+        {
+            nm.NavigateTo("persona/listar");
+        }
+
+        registradoEdit = httResponse.Response;
+
+    }
+
+
+}

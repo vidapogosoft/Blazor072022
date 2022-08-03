@@ -1,0 +1,92 @@
+﻿@page "/persona/listar"
+
+@inject NavigationManager nm
+
+@inject Repositorios.PersonaRepositorio  repo
+
+<div style="text-align:center">
+    <h3>Personas Registradas</h3>
+</div>
+
+<p>&copy; @DateTime.Now.Year - curso de Blazor con Net</p>
+
+<div style="margin: 0px 0px 10px 0px" class="form-group">
+    <a class="btn btn-primary" href="persona/crear"><i class="oi oi-plus"></i> Agregar Nuevos Datos</a>
+</div>
+
+@if (personas == null)
+{
+    <span>CARGANDO......</span>
+}
+else if (personas.Count == 0)
+{
+    <span>NO EXISTEN REGISTROS EN LA BASE DE DATOS</span>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+
+        <thead class="thead-light">
+            <tr>
+                <th scope="col"> IdPersona </th>
+                <th scope="col">Identificacion</th>
+                <th scope="col"> NombresCompletos </th>
+                <th scope="col"> FechaIngreso </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var x in personas)
+            {
+
+            <tr>
+                <td>@x.IdPersona</td>
+                <td>@x.Identificacion</td>
+                <td>@x.NombresCompletos</td>
+                <td>@x.FechaIngreso</td>
+                <td><a href="/persona/actualizar/@x.IdPersona" class="oi oi-pencil"></a></td>
+                <td><button @onclick="@(() => Eliminar(x.IdPersona))" class="oi oi-trash"></button></td>
+            </tr>
+
+            }
+
+        </tbody>
+    </table>
+
+}
+
+
+@code {
+
+    public List<Model.DTOPersona> personas { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarDatos();
+    }
+
+    private async Task CargarDatos()
+    {
+        var responseHttp = await repo.GetRegistrados<List<Model.DTOPersona>>("http://localhost/apidemo1/api/Personaget/PersonasAll1");
+
+        if (!responseHttp.Error)
+        {
+            personas = responseHttp.Response;
+        }
+
+    }
+
+    public async Task Eliminar(int IdRegistrado)
+    {
+        var responseHTTP = await repo.DeleteRegistrado("http://localhost:3849/api/Registrado/delete2/" + IdRegistrado);
+        if (responseHTTP.Error)
+        {
+            nm.NavigateTo("/persona/listar");
+        }
+        else
+        {
+            await CargarDatos();
+        }
+    }
+
+}
