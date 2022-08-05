@@ -8,4 +8,14 @@
     <Folder Include="Models\Database\dll\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Model.Blazor">
+      <HintPath>Models\Database\dll\Model.Blazor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
