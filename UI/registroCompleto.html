@@ -1,0 +1,1230 @@
+<!doctype html>
+<html lang="es" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
+  <head>
+    <meta charset="utf-8" />
+    <title>Completar Registro | Vendedores en Línea</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.png">
+    <!-- Layout config Js -->
+    <script src="assets/js/layout.js"></script>
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!-- auth-page wrapper -->
+    <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
+      <div class="bg-overlay"></div>
+      <!-- auth-page content -->
+      <div class="auth-page-content overflow-hidden pt-lg-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card overflow-hidden m-0">
+                <div class="row justify-content-center g-0">
+                  <div class="col-lg-4">
+                    <div class="p-lg-5 p-4 auth-one-bg h-100">
+                      <div class="bg-overlay"></div>
+                      <div class="position-relative h-100 d-flex flex-column">
+                        <div class="mb-4">
+                          <a href="#" class="d-block">
+                          <img src="assets/images/logo-light.png" alt="">
+                          </a>
+                        </div>
+                        <div class="mt-auto">
+                          <div id="qoutescarouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                              <button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="0" class="active"
+                                aria-current="true" aria-label="Slide 1"></button>
+                              <button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                              <button type="button" data-bs-target="#qoutescarouselIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner text-center text-white pb-5">
+                              <div class="carousel-item active">
+                                <p class="fs-15 fst-italic">"Lorem Ipsum is simply dummy text of the printing and typesetting industry."</p>
+                              </div>
+                              <div class="carousel-item">
+                                <p class="fs-15 fst-italic">"Lorem Ipsum is simply dummy text of the printing and typesetting industry."</p>
+                              </div>
+                              <div class="carousel-item">
+                                <p class="fs-15 fst-italic">"Lorem Ipsum is simply dummy text of the printing and typesetting industry."</p>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- end carousel -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="p-lg-5 p-4">
+                      <div>
+                        <h5 class="text-primary">Completa tu registro</h5>
+                        <p class="text-muted">Solo tomará unos minutos</p>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <div class="nav nav-pills flex-column nav-pills-tab custom-verti-nav-pills text-center" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active show" id="datosPersonales-tab" data-bs-toggle="pill" href="#datosPersonales" role="tab" aria-controls="datosPersonales"
+                              aria-selected="true">
+                            <i class="ri-user-2-line d-block fs-20 mb-1"></i>
+                            Datos Personales</a>
+                            <a class="nav-link" id="datosContacto-tab" data-bs-toggle="pill" href="#datosContacto" role="tab" aria-controls="datosContacto"
+                              aria-selected="false">
+                            <i class="ri-contacts-book-line d-block fs-20 mb-1"></i>
+                            Datos de Contacto</a>
+                            <a class="nav-link" id="educacionUsuario-tab" data-bs-toggle="pill" href="#educacionUsuario" role="tab" aria-controls="educacionUsuario"
+                              aria-selected="false">
+                            <i class="bx bxs-graduation d-block fs-24 mb-1"></i>
+                            Educación</a>
+                            <a class="nav-link" id="experienciaLaboral-tab" data-bs-toggle="pill" href="#experienciaLaboral" role="tab" aria-controls="experienciaLaboral"
+                              aria-selected="false">
+                            <i class="ri-briefcase-4-line d-block fs-20 mb-1"></i>
+                            Experiencia Laboral</a>
+                          </div>
+                        </div>
+                        <!-- end col-->
+                        <div class="col-sm-9">
+                          <div class="tab-content mt-3 mt-lg-0">
+                            <div class="tab-pane fade active show" id="datosPersonales" role="tabpanel" aria-labelledby="datosPersonales-tab">
+                              <form class="needs-validation" novalidate action="#">
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="nombreUsuario" class="form-label">Nombres</label>
+                                      <input type="text" class="form-control" id="nombreUsuario" placeholder="Datos previos" readonly>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="apellidoUsuario" class="form-label">Apellidos</label>
+                                      <input type="text" class="form-control" id="apellidoUsuario" placeholder="Datos previos" readonly>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="tipoDocumentoUsuario" class="form-label">Tipo de Documento</label>
+                                      <input type="text" class="form-control" id="tipoDocumentosuario" placeholder="Tipo de Documento" required>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tu tipo de documento.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="documentoUsuario" class="form-label">Documento</label>
+                                      <input type="text" class="form-control" id="documentoUsuario" placeholder="Documento" required>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tu documento.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="mb-2">
+                                  <label for="correoUsuario" class="form-label">Email</label>
+                                  <input type="email" class="form-control" id="useremail" placeholder="Datos previos" readonly>    
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="nacimientoUsuario" class="form-label">Fecha de nacimiento <span class="text-danger">*</span></label>                                                        
+                                      <input type="date" class="form-control" id="nacimientoUsuario" required>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tu fecha de nacimiento.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="generoUsuario" class="form-label">Género <span class="text-danger">*</span></label>
+                                      <select class="form-select" id="generoUsuario" required>
+                                        <option selected disabled value="">Seleccionar género</option>
+                                        <option value="1">Femenino</option>
+                                        <option value="2">Masculino</option>
+                                        <option value="3">LGBT+</option>
+                                      </select>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tu género.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <label for="nacionalidadUsuario" class="form-label">Nacionalidad <span class="text-danger">*</span></label>
+                                      <select class="form-select" id="nacionalidadUsuario" required>
+                                        <option selected disabled value="">Seleccionar país</option>
+                                        <option value="1">Argentina</option>
+                                        <option value="2">Bolivia</option>
+                                        <option value="3">Chile</option>
+                                        <option value="4">Colombia</option>
+                                        <option value="5">Ecuador</option>
+                                        <option value="6">México</option>
+                                        <option value="7">Paraguay</option>
+                                        <option value="8">Panamá</option>
+                                        <option value="9">Perú</option>
+                                        <option value="10">Uruguay</option>
+                                        <option value="11">Venezuela</option>
+                                      </select>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tu país de nacimiento.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <label for="estadoCivilUsuario" class="form-label">Estado civil <span class="text-danger">*</span></label>
+                                      <select class="form-select" id="estadoCivilUsuario" required>
+                                        <option selected disabled value="">Seleccionar estado civil</option>
+                                        <option value="1">Soltero</option>
+                                        <option value="2">Casado</option>
+                                        <option value="3">Divorciado</option>
+                                        <option value="3">Viudo</option>
+                                      </select>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tu estado civil.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <input class="form-check-input" type="checkbox" value="" id="chkLicenciaConducir">
+                                      <label class="form-check-label" for="chkLicenciaConducir">
+                                      Poseo licencia de conducir.
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <input class="form-check-input" type="checkbox" value="" id="chkMovilidad">
+                                      <label class="form-check-label" for="chkMovilidad">
+                                      Poseo movilidad propia.
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="mb-3">
+                                  <input class="form-check-input" type="checkbox" value="" id="chkPoseoDiscapacidad">
+                                  <label class="form-check-label" for="chkPoseoDiscapacidad">
+                                  Poseo algún tipo de discapacidad.
+                                  </label>
+                                </div>
+                                <span class="text-danger">* </span><span class="text-muted">Campos obligatorios</span>
+                                <div class="mt-3">
+                                  <button class="btn btn-success w-100" type="submit">Siguiente</button>
+                                </div>
+                              </form>
+                            </div>
+                            <!--end tab-pane-->
+                            <div class="tab-pane fade" id="datosContacto" role="tabpanel" aria-labelledby="datosContacto-tab">
+                              <form class="needs-validation" novalidate action="#">
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="telefonoUsuario" class="form-label">Teléfono celular <span class="text-danger">*</span></label>
+                                      <input type="text" class="form-control" id="telefonoUsuario" placeholder="Ingresa tu teléfono celular" required>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tus teléfono celular.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="telefono2Usuario" class="form-label">Otro teléfono</label>
+                                      <input type="text" class="form-control" id="telefono2Usuario" placeholder="Ingresa un teléfono secundario">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="mb-2">
+                                  <label for="correoUsuario" class="form-label">Email</label>
+                                  <input type="email" class="form-control" id="correoUsuario" placeholder="Datos previos" readonly>    
+                                </div>
+                                <div class="mb-2">
+                                  <label for="correo2Usuario" class="form-label">Email Secundario</label>
+                                  <input type="email" class="form-control" id="correo2Usuario" placeholder="Ingresa una dirección de correo secundaria">                                                       
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="paisUsuario" class="form-label">País de residencia <span class="text-danger">*</span></label>
+                                      <select class="form-select" id="paisUsuario" required>
+                                        <option selected disabled value="">Seleccionar país</option>
+                                        <option value="1">Argentina</option>
+                                        <option value="2">Bolivia</option>
+                                        <option value="3">Chile</option>
+                                        <option value="4">Colombia</option>
+                                        <option value="5">Ecuador</option>
+                                        <option value="6">México</option>
+                                        <option value="7">Paraguay</option>
+                                        <option value="8">Panamá</option>
+                                        <option value="9">Perú</option>
+                                        <option value="10">Uruguay</option>
+                                        <option value="11">Venezuela</option>
+                                      </select>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tu país de residencia.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="provinciaUsuario" class="form-label">Provincia <span class="text-danger">*</span></label>
+                                      <input type="text" class="form-control" id="provinciaUsuario" placeholder="Ingresa tu provincia" required>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tu provincia.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-2">
+                                      <label for="cantonUsuario" class="form-label">Cantón <span class="text-danger">*</span></label>
+                                      <input type="text" class="form-control" id="cantonUsuario" placeholder="Ingresa tu canton" required>
+                                      <div class="invalid-feedback">
+                                        Por favor ingresa tu cantón.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="mb-2">
+                                  <label for="direccionUsuario" class="form-label">Dirección <span class="text-danger">*</span></label>
+                                  <input type="text" class="form-control" id="direccionUsuario" placeholder="Ingresa tu dirección" required>
+                                  <div class="invalid-feedback">
+                                    Por favor ingresa tus dirección.
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <label for="direccionUsuario" class="form-label">Redes Sociales</label>
+                                  <div class="col-sm-6">
+                                    <div class="form-icon mb-2">                                                        
+                                      <input type="text" class="form-control form-control-icon" id="facebookUsuario" placeholder="Ingresa tu URL de Facebook">
+                                      <i class="ri-facebook-fill"></i>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="form-icon mb-2">                                                        
+                                      <input type="text" class="form-control form-control-icon" id="twitterUsuario" placeholder="Ingresa tu URL de Twitter">
+                                      <i class="ri-twitter-fill"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="form-icon mb-3">                                                        
+                                      <input type="text" class="form-control form-control-icon" id="instagramUsuario" placeholder="Ingresa tu URL de Instagram">
+                                      <i class="ri-instagram-fill"></i>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <div class="form-icon mb-3">                                                        
+                                      <input type="text" class="form-control form-control-icon" id="linkedinUsuario" placeholder="Ingresa tu URL de LinkedIn">
+                                      <i class="ri-linkedin-fill"></i>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span class="text-danger">* </span><span class="text-muted">Campos obligatorios</span>
+                                <div class="mt-3">
+                                  <button class="btn btn-success w-100" type="submit">Siguiente</button>
+                                </div>
+                              </form>
+                            </div>
+                            <!--end tab-pane-->
+                            <div class="tab-pane fade" id="educacionUsuario" role="tabpanel" aria-labelledby="educacionUsuario-tab">
+                              <div class="mt-3">
+                                <div class="d-flex align-items-center">
+                                  <div class="flex-grow-1">
+                                    <h5>Formación académica</h5>
+                                  </div>
+                                  <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-sm btn-outline-primary btn-label waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#mdFormacionAcademica"><i class="ri-add-circle-fill label-icon"></i>Agregar</button>
+                                  </div>
+                                </div>
+                                <hr class="mt-1">
+                                <div class="d-flex align-items-center">
+                                  <!-- Item Formación académica-->
+                                  <div class="flex-grow-1">
+                                    <div>
+                                      <h5 class="text-primary">Licenciado en Administración de Empresas</h5>
+                                      <h5>Universidad de Guayaquil</h5>
+                                      <h6 class="text-muted">Universitario - Graduado</h6>
+                                      <p class="text-muted">Feb 2010 - Sep 2015, Ecuador</p>
+                                    </div>
+                                  </div>
+                                  <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-sm btn-outline-primary shadow-none">
+                                    <i class="ri-pencil-fill"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary shadow-none">
+                                    <i class="ri-delete-bin-fill"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="mt-4">
+                                <div class="d-flex align-items-center">
+                                  <div class="flex-grow-1">
+                                    <h5>Idiomas</h5>
+                                  </div>
+                                  <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-sm btn-outline-primary btn-label waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#mdIdioma"><i class="ri-add-circle-fill label-icon"></i>Agregar</button>
+                                  </div>
+                                </div>
+                                <hr class="mt-1">
+                                <div class="d-flex align-items-center">
+                                  <!-- Item Formación académica-->
+                                  <div class="flex-grow-1">
+                                    <div>
+                                      <h5 class="text-primary">Español</h5>
+                                      <p class="text-muted mb-0"><b>Escrito:</b> Nativo</p>
+                                      <p class="text-muted mb-0"><b>Hablado:</b> Nativo</p>
+                                    </div>
+                                  </div>
+                                  <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-sm btn-outline-primary shadow-none">
+                                    <i class="ri-pencil-fill"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary shadow-none">
+                                    <i class="ri-delete-bin-fill"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="mt-4">
+                                <button class="btn btn-success w-100" type="submit">Siguiente</button>
+                              </div>
+                            </div>
+                            <!--end tab-pane-->
+                            <div class="tab-pane fade" id="experienciaLaboral" role="tabpanel" aria-labelledby="experienciaLaboral-tab">
+                              <div class="mt-3">
+                                <div class="d-flex align-items-center">
+                                  <div class="flex-grow-1">
+                                    <h5>Experiencia laboral</h5>
+                                  </div>
+                                  <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-sm btn-outline-primary btn-label waves-effect waves-light"  data-bs-toggle="modal" data-bs-target="#mdExperienciaLaboral"><i class="ri-add-circle-fill label-icon"></i>Agregar</button>
+                                  </div>
+                                </div>
+                                <hr class="mt-1">
+                                <div class="d-flex align-items-center">
+                                  <!-- Item Experiencia Laboral-->               
+                                  <div class="flex-grow-1">
+                                    <div>
+                                      <h5 class="text-primary">Coordinador de Ventas</h5>
+                                      <h5>Inmobiliaria XYZ</h5>
+                                      <h6 class="text-muted">Jun 2018 - Actualidad</h6>
+                                      <p class="text-muted">Promover las ventas de la urbanización ABC, coordinar a la fuerza de ventas.</p>
+                                    </div>
+                                  </div>
+                                  <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-sm btn-outline-primary shadow-none">
+                                    <i class="ri-pencil-fill"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary shadow-none">
+                                    <i class="ri-delete-bin-fill"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                  <!-- Item Experiencia Laboral-->               
+                                  <div class="flex-grow-1">
+                                    <div>
+                                      <h5 class="text-primary">Vendedor</h5>
+                                      <h5>Inmobiliaria XYZ</h5>
+                                      <h6 class="text-muted">Enero 2015 - Marzo 2018</h6>
+                                      <p class="text-muted">Promover las ventas de la urbanización ABC.</p>
+                                    </div>
+                                  </div>
+                                  <div class="flex-shrink-0">
+                                    <button type="button" class="btn btn-sm btn-outline-primary shadow-none">
+                                    <i class="ri-pencil-fill"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary shadow-none">
+                                    <i class="ri-delete-bin-fill"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class=" mt-3">
+                                <h5>Hoja de Vida</h5>
+                                <hr class="mt-1">
+                                <label for="formFile" class="form-label">Subir archivo en .pdf</label>
+                                <input class="form-control" type="file" id="formFile">
+                              </div>
+                              <div class="mt-3">
+                                <button class="btn btn-success w-100" type="submit">Finalizar</button>
+                              </div>
+                            </div>
+                            <!--end tab-pane-->
+                          </div>
+                        </div>
+                        <!-- end col-->
+                      </div>
+                      <!-- end row-->
+                      <div class="mt-5 text-center">
+                        <p class="mb-0">¿Ya tienes una cuenta? <a href="#" class="fw-semibold text-primary text-decoration-underline">Inicia Sesión</a> </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end card -->
+            </div>
+            <!-- end col -->
+          </div>
+          <!-- end row -->
+        </div>
+        <!-- end container -->
+      </div>
+      <!-- end auth page content -->
+      <!-- footer -->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="text-center">
+                <p class="mb-0">
+                  &copy; <script>document.write(new Date().getFullYear())</script> Vendedores en Linea 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- end Footer -->
+      <!-- Modal Formación Académica -->
+      <div class="modal fade" id="mdFormacionAcademica" tabindex="-1" aria-labelledby="mdFormacionAcademicaLabel" aria-modal="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="mdFormacionAcademicaLabel">Agregar Formación Académica</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+            </div>
+            <div class="modal-body">
+              <form class="needs-validation" novalidate action="#" action="javascript:void(0);">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="titulo" class="form-label">Título / Carrera <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="titulo" placeholder="Ingresa tu Título / Carrera" required>
+                      <div class="invalid-feedback">
+                        Por favor ingresa tu Título / Carrera.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="institucion" class="form-label">Institución <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="institucion" placeholder="Ingresa tu Institución" required>
+                      <div class="invalid-feedback">
+                        Por favor ingresa la Institución.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="tipoEstudio" class="form-label">Tipo de estudio <span class="text-danger">*</span></label>
+                      <select class="form-select" id="tipoEstudio" required>
+                        <option selected disabled value="">Seleccionar país</option>
+                        <option value="1">Secundario</option>
+                        <option value="2">Técnico/Tecnológico</option>
+                        <option value="3">Universitario</option>
+                        <option value="4">Master</option>
+                        <option value="5">Doctorado</option>
+                        <option value="6">Otro</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor ingresa tu tipo de estudio.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="paisEstudios" class="form-label">País <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="paisEstudios" placeholder="Ingresa el país de estudio" required>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el país de estudio.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="estadoEstudio" class="form-label">Estado <span class="text-danger">*</span></label>
+                      <select class="form-select" id="estadoEstudio" required>
+                        <option selected disabled value="">Seleccionar estado de estudio</option>
+                        <option value="1">En curso</option>
+                        <option value="2">Graduado</option>
+                        <option value="3">Abandonado</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor ingresa tu tipo de estudio.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="areaEstudio" class="form-label">Área de estudio <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="areaEstudio" placeholder="Ingresa el área de estudio" required>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el área de estudio.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="row mb-2">
+                      <label for="fechaInicio" class="form-label">Fecha de inicio <span class="text-danger">*</span></label>
+                      <div class="col-sm-6">
+                        <select class="form-select" id="fechaInicio" required>
+                          <option selected disabled value="">Mes</option>
+                          <option value="1">Enero</option>
+                          <option value="2">Febrero</option>
+                          <option value="3">Marzo</option>
+                          <option value="4">Abril</option>
+                          <option value="5">Mayo</option>
+                          <option value="6">Junio</option>
+                          <option value="7">Julio</option>
+                          <option value="8">Agosto</option>
+                          <option value="9">Septiembre</option>
+                          <option value="10">Octubre</option>
+                          <option value="11">Noviembre</option>
+                          <option value="12">Diciembre </option>
+                        </select>
+                      </div>
+                      <div class="col-sm-6">
+                        <select class="form-select" id="fechaInicio" required>
+                          <option selected disabled value="">Año</option>
+                          <option value="1">2022</option>
+                          <option value="2">2021</option>
+                          <option value="3">2020</option>
+                          <option value="4">2019</option>
+                          <option value="5">2018</option>
+                          <option value="6">2017</option>
+                          <option value="7">2016</option>
+                          <option value="8">2015</option>
+                          <option value="9">2014</option>
+                          <option value="10">2013</option>
+                          <option value="11">2012</option>
+                          <option value="12">2011</option>
+                          <option value="13">2010</option>
+                          <option value="14">2009</option>
+                          <option value="15">2008</option>
+                          <option value="16">2007</option>
+                          <option value="17">2006</option>
+                          <option value="18">2005</option>
+                          <option value="19">2004</option>
+                          <option value="20">2003</option>
+                          <option value="21">2002</option>
+                          <option value="22">2001</option>
+                          <option value="23">2000</option>
+                          <option value="24">1999</option>
+                          <option value="25">1998</option>
+                          <option value="26">1997</option>
+                          <option value="27">1996</option>
+                          <option value="28">1995</option>
+                          <option value="29">1994</option>
+                          <option value="30">1993</option>
+                          <option value="31">1992</option>
+                          <option value="32">1991</option>
+                          <option value="33">1990</option>
+                          <option value="34">1989</option>
+                          <option value="35">1988</option>
+                          <option value="36">1987</option>
+                          <option value="37">1986</option>
+                          <option value="38">1985</option>
+                          <option value="39">1984</option>
+                          <option value="40">1983</option>
+                          <option value="41">1982</option>
+                          <option value="42">1981</option>
+                          <option value="43">1980</option>
+                          <option value="44">1979</option>
+                          <option value="45">1978</option>
+                          <option value="46">1977</option>
+                          <option value="47">1976</option>
+                          <option value="48">1975</option>
+                          <option value="49">1974</option>
+                          <option value="50">1973</option>
+                          <option value="51">1972</option>
+                          <option value="52">1971</option>
+                          <option value="53">1970</option>
+                          <option value="54">1969</option>
+                          <option value="55">1968</option>
+                          <option value="56">1967</option>
+                          <option value="57">1966</option>
+                          <option value="58">1965</option>
+                          <option value="59">1964</option>
+                          <option value="60">1963</option>
+                          <option value="61">1962</option>
+                          <option value="62">1961</option>
+                          <option value="63">1960</option>
+                          <option value="64">1959</option>
+                          <option value="65">1958</option>
+                          <option value="66">1957</option>
+                          <option value="67">1956</option>
+                          <option value="68">1955</option>
+                          <option value="69">1954</option>
+                          <option value="70">1953</option>
+                          <option value="71">1952</option>
+                          <option value="72">1951</option>
+                          <option value="73">1950</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="row mb-2">
+                      <label for="fechaFin" class="form-label">Fecha de fin <span class="text-danger">*</span></label>
+                      <div class="col-sm-6">
+                        <select class="form-select" id="fechaFin" required>
+                          <option selected disabled value="">Mes</option>
+                          <option value="1">Enero</option>
+                          <option value="2">Febrero</option>
+                          <option value="3">Marzo</option>
+                          <option value="4">Abril</option>
+                          <option value="5">Mayo</option>
+                          <option value="6">Junio</option>
+                          <option value="7">Julio</option>
+                          <option value="8">Agosto</option>
+                          <option value="9">Septiembre</option>
+                          <option value="10">Octubre</option>
+                          <option value="11">Noviembre</option>
+                          <option value="12">Diciembre </option>
+                        </select>
+                      </div>
+                      <div class="col-sm-6">
+                        <select class="form-select" id="fechaInicio" required>
+                          <option selected disabled value="">Año</option>
+                          <option value="1">2022</option>
+                          <option value="2">2021</option>
+                          <option value="3">2020</option>
+                          <option value="4">2019</option>
+                          <option value="5">2018</option>
+                          <option value="6">2017</option>
+                          <option value="7">2016</option>
+                          <option value="8">2015</option>
+                          <option value="9">2014</option>
+                          <option value="10">2013</option>
+                          <option value="11">2012</option>
+                          <option value="12">2011</option>
+                          <option value="13">2010</option>
+                          <option value="14">2009</option>
+                          <option value="15">2008</option>
+                          <option value="16">2007</option>
+                          <option value="17">2006</option>
+                          <option value="18">2005</option>
+                          <option value="19">2004</option>
+                          <option value="20">2003</option>
+                          <option value="21">2002</option>
+                          <option value="22">2001</option>
+                          <option value="23">2000</option>
+                          <option value="24">1999</option>
+                          <option value="25">1998</option>
+                          <option value="26">1997</option>
+                          <option value="27">1996</option>
+                          <option value="28">1995</option>
+                          <option value="29">1994</option>
+                          <option value="30">1993</option>
+                          <option value="31">1992</option>
+                          <option value="32">1991</option>
+                          <option value="33">1990</option>
+                          <option value="34">1989</option>
+                          <option value="35">1988</option>
+                          <option value="36">1987</option>
+                          <option value="37">1986</option>
+                          <option value="38">1985</option>
+                          <option value="39">1984</option>
+                          <option value="40">1983</option>
+                          <option value="41">1982</option>
+                          <option value="42">1981</option>
+                          <option value="43">1980</option>
+                          <option value="44">1979</option>
+                          <option value="45">1978</option>
+                          <option value="46">1977</option>
+                          <option value="47">1976</option>
+                          <option value="48">1975</option>
+                          <option value="49">1974</option>
+                          <option value="50">1973</option>
+                          <option value="51">1972</option>
+                          <option value="52">1971</option>
+                          <option value="53">1970</option>
+                          <option value="54">1969</option>
+                          <option value="55">1968</option>
+                          <option value="56">1967</option>
+                          <option value="57">1966</option>
+                          <option value="58">1965</option>
+                          <option value="59">1964</option>
+                          <option value="60">1963</option>
+                          <option value="61">1962</option>
+                          <option value="62">1961</option>
+                          <option value="63">1960</option>
+                          <option value="64">1959</option>
+                          <option value="65">1958</option>
+                          <option value="66">1957</option>
+                          <option value="67">1956</option>
+                          <option value="68">1955</option>
+                          <option value="69">1954</option>
+                          <option value="70">1953</option>
+                          <option value="71">1952</option>
+                          <option value="72">1951</option>
+                          <option value="73">1950</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 mt-3">
+                    <span class="text-danger">* </span><span class="text-muted">Campos obligatorios</span>     
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="hstack gap-2 justify-content-end">
+                      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="submit" class="btn btn-primary">Agregar</button>
+                    </div>
+                  </div>
+                  <!--end col-->
+                </div>
+                <!--end row-->
+              </form>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- end Modal Formación Académica -->
+      <!-- Modal Idioma -->
+      <div class="modal fade" id="mdIdioma" tabindex="-1" aria-labelledby="mdIdiomaLabel" aria-modal="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="mdIdiomaLabel">Agregar Idioma</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+            </div>
+            <div class="modal-body">
+              <form class="needs-validation" novalidate action="#" action="javascript:void(0);">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="mb-2">
+                      <label for="tipoIdioma" class="form-label">Idioma <span class="text-danger">*</span></label>
+                      <select class="form-select" id="tipoIdioma" required>
+                        <option selected disabled value="">Seleccionar Idioma</option>
+                        <option value="1">Alemán</option>
+                        <option value="2">Chino Mandarín</option>
+                        <option value="3">Coreano</option>
+                        <option value="4">Español</option>
+                        <option value="5">Frances</option>
+                        <option value="6">Holandés</option>
+                        <option value="7">Inglés</option>
+                        <option value="8">Italiano</option>
+                        <option value="9">Japones</option>
+                        <option value="10">Portugués</option>
+                        <option value="11">Quechua</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el Idioma.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="mb-2">
+                      <label for="nivelEscrito" class="form-label">Nivel escrito <span class="text-danger">*</span></label>
+                      <select class="form-select" id="nivelEscrito" required>
+                        <option selected disabled value="">Seleccionar nivel escrito</option>
+                        <option value="1">Básico</option>
+                        <option value="2">Intermedio</option>
+                        <option value="3">Avanzado</option>
+                        <option value="4">Nativo</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el Idioma.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="mb-2">
+                      <label for="nivelOral" class="form-label">Nivel oral <span class="text-danger">*</span></label>
+                      <select class="form-select" id="nivelOral" required>
+                        <option selected disabled value="">Seleccionar nivel escrito</option>
+                        <option value="1">Básico</option>
+                        <option value="2">Intermedio</option>
+                        <option value="3">Avanzado</option>
+                        <option value="4">Nativo</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el Idioma.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 mt-3">
+                    <span class="text-danger">* </span><span class="text-muted">Campos obligatorios</span>     
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="hstack gap-2 justify-content-end">
+                      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="submit" class="btn btn-primary">Agregar</button>
+                    </div>
+                  </div>
+                  <!--end col-->
+                </div>
+                <!--end row-->
+              </form>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- end Modal Idioma-->
+      <!-- Modal Experiencia Laboral -->
+      <div class="modal fade" id="mdExperienciaLaboral" tabindex="-1" aria-labelledby="mdExperienciaLaboralLabel" aria-modal="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="mdExperienciaLaboralLabel">Agregar Experiencia Laboral</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
+            </div>
+            <div class="modal-body">
+              <form class="needs-validation" novalidate action="#" action="javascript:void(0);">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="empresa" class="form-label">Empresa <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="empresa" placeholder="Ingresa el nombre de la empresa" required>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el nombre de la empresa.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="actividadEmpresa" class="form-label">Actividad de la empresa <span class="text-danger">*</span></label>
+                      <select class="form-select" id="actividadEmpresa" required>
+                        <option selected disabled value="">Seleccionar actividad de la empresa</option>
+                        <option value="1">Alimenticia</option>
+                        <option value="2">Automotriz</option>
+                        <option value="3">Bienes Raíces</option>
+                        <option value="4">Inmobiliaria</option>
+                        <option value="5">Seguros</option>
+                        <option value="6">Otro</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor ingresa tu tipo de estudio.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="puesto" class="form-label">Puesto <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="puesto" placeholder="Ingresa el puesto" required>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el puesto.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="actividadEmpresa" class="form-label">Nivel de experiencia <span class="text-danger">*</span></label>
+                      <select class="form-select" id="actividadEmpresa" required>
+                        <option selected disabled value="">Seleccionar nivel de experiencia</option>
+                        <option value="1">Training</option>
+                        <option value="2">Junior</option>
+                        <option value="3">Semi-Senior</option>
+                        <option value="4">Senior</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el nivel de experiencia.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="areaPuesto" class="form-label">Área del puesto <span class="text-danger">*</span></label>
+                      <select class="form-select" id="areaPuesto" required>
+                        <option selected disabled value="">Seleccionar el área del puesto</option>
+                        <option value="1">Atención al cliente, Call center y Telemarketing</option>
+                        <option value="2">Comercial, Ventas y Negocios</option>
+                        <option value="3">Comunicaciones, Relaciones Institucionales y Publicas</option>
+                        <option value="4">Gerencia y Dirección General</option>
+                        <option value="5">Marketing y Publicidad</option>
+                        <option value="6">Otro</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el área del puesto.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <label for="paisEstudios" class="form-label">País <span class="text-danger">*</span></label>
+                      <input type="text" class="form-control" id="paisEstudios" placeholder="Ingresa el país de trabajo" required>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el país de trabajo.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="row mb-2">
+                      <label for="fechaInicio" class="form-label">Fecha de inicio <span class="text-danger">*</span></label>
+                      <div class="col-sm-6">
+                        <select class="form-select" id="fechaInicio" required>
+                          <option selected disabled value="">Mes</option>
+                          <option value="1">Enero</option>
+                          <option value="2">Febrero</option>
+                          <option value="3">Marzo</option>
+                          <option value="4">Abril</option>
+                          <option value="5">Mayo</option>
+                          <option value="6">Junio</option>
+                          <option value="7">Julio</option>
+                          <option value="8">Agosto</option>
+                          <option value="9">Septiembre</option>
+                          <option value="10">Octubre</option>
+                          <option value="11">Noviembre</option>
+                          <option value="12">Diciembre </option>
+                        </select>
+                      </div>
+                      <div class="col-sm-6">
+                        <select class="form-select" id="fechaInicio" required>
+                          <option selected disabled value="">Año</option>
+                          <option value="1">2022</option>
+                          <option value="2">2021</option>
+                          <option value="3">2020</option>
+                          <option value="4">2019</option>
+                          <option value="5">2018</option>
+                          <option value="6">2017</option>
+                          <option value="7">2016</option>
+                          <option value="8">2015</option>
+                          <option value="9">2014</option>
+                          <option value="10">2013</option>
+                          <option value="11">2012</option>
+                          <option value="12">2011</option>
+                          <option value="13">2010</option>
+                          <option value="14">2009</option>
+                          <option value="15">2008</option>
+                          <option value="16">2007</option>
+                          <option value="17">2006</option>
+                          <option value="18">2005</option>
+                          <option value="19">2004</option>
+                          <option value="20">2003</option>
+                          <option value="21">2002</option>
+                          <option value="22">2001</option>
+                          <option value="23">2000</option>
+                          <option value="24">1999</option>
+                          <option value="25">1998</option>
+                          <option value="26">1997</option>
+                          <option value="27">1996</option>
+                          <option value="28">1995</option>
+                          <option value="29">1994</option>
+                          <option value="30">1993</option>
+                          <option value="31">1992</option>
+                          <option value="32">1991</option>
+                          <option value="33">1990</option>
+                          <option value="34">1989</option>
+                          <option value="35">1988</option>
+                          <option value="36">1987</option>
+                          <option value="37">1986</option>
+                          <option value="38">1985</option>
+                          <option value="39">1984</option>
+                          <option value="40">1983</option>
+                          <option value="41">1982</option>
+                          <option value="42">1981</option>
+                          <option value="43">1980</option>
+                          <option value="44">1979</option>
+                          <option value="45">1978</option>
+                          <option value="46">1977</option>
+                          <option value="47">1976</option>
+                          <option value="48">1975</option>
+                          <option value="49">1974</option>
+                          <option value="50">1973</option>
+                          <option value="51">1972</option>
+                          <option value="52">1971</option>
+                          <option value="53">1970</option>
+                          <option value="54">1969</option>
+                          <option value="55">1968</option>
+                          <option value="56">1967</option>
+                          <option value="57">1966</option>
+                          <option value="58">1965</option>
+                          <option value="59">1964</option>
+                          <option value="60">1963</option>
+                          <option value="61">1962</option>
+                          <option value="62">1961</option>
+                          <option value="63">1960</option>
+                          <option value="64">1959</option>
+                          <option value="65">1958</option>
+                          <option value="66">1957</option>
+                          <option value="67">1956</option>
+                          <option value="68">1955</option>
+                          <option value="69">1954</option>
+                          <option value="70">1953</option>
+                          <option value="71">1952</option>
+                          <option value="72">1951</option>
+                          <option value="73">1950</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 mb-2">
+                    <div class="row mb-1">
+                      <label for="fechaFin" class="form-label">Fecha de fin <span class="text-danger">*</span></label>
+                      <div class="col-sm-6">
+                        <select class="form-select" id="fechaFin" required>
+                          <option selected disabled value="">Mes</option>
+                          <option value="1">Enero</option>
+                          <option value="2">Febrero</option>
+                          <option value="3">Marzo</option>
+                          <option value="4">Abril</option>
+                          <option value="5">Mayo</option>
+                          <option value="6">Junio</option>
+                          <option value="7">Julio</option>
+                          <option value="8">Agosto</option>
+                          <option value="9">Septiembre</option>
+                          <option value="10">Octubre</option>
+                          <option value="11">Noviembre</option>
+                          <option value="12">Diciembre </option>
+                        </select>
+                      </div>
+                      <div class="col-sm-6">
+                        <select class="form-select" id="fechaInicio" required>
+                          <option selected disabled value="">Año</option>
+                          <option value="1">2022</option>
+                          <option value="2">2021</option>
+                          <option value="3">2020</option>
+                          <option value="4">2019</option>
+                          <option value="5">2018</option>
+                          <option value="6">2017</option>
+                          <option value="7">2016</option>
+                          <option value="8">2015</option>
+                          <option value="9">2014</option>
+                          <option value="10">2013</option>
+                          <option value="11">2012</option>
+                          <option value="12">2011</option>
+                          <option value="13">2010</option>
+                          <option value="14">2009</option>
+                          <option value="15">2008</option>
+                          <option value="16">2007</option>
+                          <option value="17">2006</option>
+                          <option value="18">2005</option>
+                          <option value="19">2004</option>
+                          <option value="20">2003</option>
+                          <option value="21">2002</option>
+                          <option value="22">2001</option>
+                          <option value="23">2000</option>
+                          <option value="24">1999</option>
+                          <option value="25">1998</option>
+                          <option value="26">1997</option>
+                          <option value="27">1996</option>
+                          <option value="28">1995</option>
+                          <option value="29">1994</option>
+                          <option value="30">1993</option>
+                          <option value="31">1992</option>
+                          <option value="32">1991</option>
+                          <option value="33">1990</option>
+                          <option value="34">1989</option>
+                          <option value="35">1988</option>
+                          <option value="36">1987</option>
+                          <option value="37">1986</option>
+                          <option value="38">1985</option>
+                          <option value="39">1984</option>
+                          <option value="40">1983</option>
+                          <option value="41">1982</option>
+                          <option value="42">1981</option>
+                          <option value="43">1980</option>
+                          <option value="44">1979</option>
+                          <option value="45">1978</option>
+                          <option value="46">1977</option>
+                          <option value="47">1976</option>
+                          <option value="48">1975</option>
+                          <option value="49">1974</option>
+                          <option value="50">1973</option>
+                          <option value="51">1972</option>
+                          <option value="52">1971</option>
+                          <option value="53">1970</option>
+                          <option value="54">1969</option>
+                          <option value="55">1968</option>
+                          <option value="56">1967</option>
+                          <option value="57">1966</option>
+                          <option value="58">1965</option>
+                          <option value="59">1964</option>
+                          <option value="60">1963</option>
+                          <option value="61">1962</option>
+                          <option value="62">1961</option>
+                          <option value="63">1960</option>
+                          <option value="64">1959</option>
+                          <option value="65">1958</option>
+                          <option value="66">1957</option>
+                          <option value="67">1956</option>
+                          <option value="68">1955</option>
+                          <option value="69">1954</option>
+                          <option value="70">1953</option>
+                          <option value="71">1952</option>
+                          <option value="72">1951</option>
+                          <option value="73">1950</option>
+                        </select>
+                      </div>
+                    </div>
+                    <input class="form-check-input" type="checkbox" value="" id="chkAlPresente">
+                    <label class="form-check-label" for="chkAlPresente">
+                    Al presente
+                    </label>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-2">
+                      <span class="text-dark">¿Experiencia relacionada a las Ventas? </span><span class="text-danger">*</span>  
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="opExperienciaVentas" id="experienciaVentasSi" value="option1" required>
+                        <label class="form-check-label" for="experienciaVentasSi">Si</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="opExperienciaVentas" id="experienciaVentasNo" value="option2" required>
+                        <label class="form-check-label" for="experienciaVentasNo">No</label>
+                      </div>
+                      <div class="invalid-feedback">
+                        Por favor ingresa el país de trabajo.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <span class="text-danger">* </span><span class="text-muted">Campos obligatorios</span>     
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="hstack gap-2 justify-content-end">
+                      <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="submit" class="btn btn-primary">Agregar</button>
+                    </div>
+                  </div>
+                  <!--end col-->
+                </div>
+                <!--end row-->
+              </form>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- end Modal Experiencia Laboral -->
+    </div>
+    <!-- end auth-page-wrapper -->
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <!-- validation init -->
+    <script src="assets/js/pages/form-validation.init.js"></script>
+  </body>
+</html>
