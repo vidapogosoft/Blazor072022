@@ -184,7 +184,7 @@ namespace Model.Blazor.Models.Database
             modelBuilder.Entity<DatosPersonale>(entity =>
             {
                 entity.HasKey(e => e.IdDato)
-                    .HasName("PK__DatosPer__F298CC9FD72D21B3");
+                    .HasName("PK__DatosPer__F298CC9FA1E03F20");
 
                 entity.Property(e => e.Apellidos)
                     .HasMaxLength(200)
