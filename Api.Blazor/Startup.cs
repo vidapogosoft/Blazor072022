@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Api.Blazor.Interfaces.Registro;
+using Api.Blazor.Services.Registro;
+
 namespace Api.Blazor
 {
     public class Startup
@@ -26,6 +29,12 @@ namespace Api.Blazor
         {
 
             services.AddControllers();
+
+            services.AddSingleton<IDataRepositoryDatosPersonales, ServicesDatosPersonales>();
+            services.AddSingleton<IDataRepositoryDatosContacto, ServicesDatosContacto>();
+            services.AddSingleton<IDataRepositoryDatosEducacion, ServicesDatosEducacion>();
+            services.AddSingleton<IDataRepositoryDatosIdiomas, ServicesDatosIdiomas>();
+            services.AddSingleton<IDataRepositoryDatosLaborales, ServicesDatosLaborales>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Api.Blazor.Interfaces.Registro;
+using Model.Blazor.Models.Database;
 
 namespace Api.Blazor.Controllers
 {
@@ -12,6 +13,14 @@ namespace Api.Blazor.Controllers
     [ApiController]
     public class DatosLaboralesController : ControllerBase
     {
+        private readonly IDataRepositoryDatosLaborales dalaborales;
+
+        public DatosLaboralesController(IDataRepositoryDatosLaborales idalaborales)
+        {
+
+            dalaborales = idalaborales;
+        }
+
         // GET: api/<DatosLaboralesController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -20,16 +29,34 @@ namespace Api.Blazor.Controllers
         }
 
         // GET api/<DatosLaboralesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{IdDato}")]
+        public IActionResult GetById(int IdDato)
         {
-            return "value";
+            return Ok(dalaborales.GetDatosLaboral(IdDato));
         }
 
         // POST api/<DatosLaboralesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult PostDatos([FromBody] DatosLaboral item)
         {
+            try
+            {
+
+                if (item == null || !ModelState.IsValid)
+                {
+                    return BadRequest("Error: Envio de datos");
+                }
+
+                dalaborales.PostDatosLaboral(item);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Error:" + ex.Message);
+            }
+
+            return Ok(item.IdDato);
+
         }
 
         // PUT api/<DatosLaboralesController>/5

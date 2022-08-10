@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Api.Blazor.Interfaces.Registro;
+using Model.Blazor.Models.Database;
 
 namespace Api.Blazor.Controllers
 {
@@ -12,6 +13,14 @@ namespace Api.Blazor.Controllers
     [ApiController]
     public class DatosContactoController : ControllerBase
     {
+        private readonly IDataRepositoryDatosContacto dacontacto;
+
+        public DatosContactoController(IDataRepositoryDatosContacto idacontacto)
+        {
+
+            dacontacto = idacontacto;
+        }
+
         // GET: api/<DatosContactoController>
         [HttpGet]
         public IEnumerable<string> Get()
@@ -20,17 +29,36 @@ namespace Api.Blazor.Controllers
         }
 
         // GET api/<DatosContactoController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{IdDato}")]
+        public IActionResult GetById(int IdDato)
         {
-            return "value";
+            return Ok(dacontacto.GetDatosContacto(IdDato));
         }
 
         // POST api/<DatosContactoController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult PostDatos([FromBody] DatosContacto item)
         {
+            try
+            {
+
+                if (item == null || !ModelState.IsValid)
+                {
+                    return BadRequest("Error: Envio de datos");
+                }
+
+                dacontacto.PostDatosContacto(item);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Error:" + ex.Message);
+            }
+
+            return Ok(item.IdDato);
+
         }
+
 
         // PUT api/<DatosContactoController>/5
         [HttpPut("{id}")]
