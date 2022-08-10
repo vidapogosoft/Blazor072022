@@ -7,7 +7,7 @@ using Model.Blazor.Models.Database;
 
 namespace Api.Blazor.Interfaces.Registro
 {
-    interface IDataRepositoryDatosIdiomas
+    public interface IDataRepositoryDatosIdiomas
     {
         void PostDatosIdiomas(DatosIdioma item);
         IEnumerable<DatosIdioma> GetDatosIdiomas(int IdDato);

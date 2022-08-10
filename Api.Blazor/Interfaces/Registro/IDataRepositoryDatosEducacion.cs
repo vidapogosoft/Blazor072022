@@ -7,7 +7,7 @@ using Model.Blazor.Models.Database;
 
 namespace Api.Blazor.Interfaces.Registro
 {
-    interface IDataRepositoryDatosEducacion
+    public interface IDataRepositoryDatosEducacion
     {
         void PostDatosEducacion(DatosEducacion item);
         IEnumerable<DatosEducacion> GetDatosEducacion(int IdDato);
