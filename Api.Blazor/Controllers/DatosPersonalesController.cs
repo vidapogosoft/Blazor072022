@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 using Api.Blazor.Interfaces.Registro;
 using Model.Blazor.Models.Database;
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace Api.Blazor.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class DatosPersonalesController : ControllerBase
