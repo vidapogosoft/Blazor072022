@@ -21,6 +21,12 @@ namespace LoginLocalStorage
     {
         private readonly IJSRuntime jsruntime;
 
+        public LocalStorage(IJSRuntime jSRuntime)
+        {
+            jsruntime = jSRuntime;
+        }
+
+
         public async Task RemoveAsync(string key)
         {
             await jsruntime.InvokeVoidAsync("localStorage.removeItem", key).ConfigureAwait(false);
