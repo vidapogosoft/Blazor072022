@@ -1,0 +1,33 @@
+﻿@page "/localstorage"
+@inject ILocalStorage LocalStorages
+
+<h3>LocalStorage</h3>
+
+<div>
+    @if (data != null)
+    {
+        foreach (var s in data)
+        {
+            <p>@s</p>
+        }
+    }
+</div>
+
+@code {
+    string[] data;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        string[] values = new[] { "token", "vidapogosoft@gmail.com", "email", DateTime.Now.ToString() };
+
+        // save array of user data
+        await LocalStorages.SaveStringArrayAsync("user", values);
+
+        // retrieve array of user data
+        data = await LocalStorages.GetStringArrayAsync("user");
+
+        // delete user data
+        await LocalStorages.RemoveAsync("user");
+    }
+}
