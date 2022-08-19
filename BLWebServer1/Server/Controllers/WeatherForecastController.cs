@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.AspNetCore.Authorization;
+
 namespace BLWebServer1.Server.Controllers
 {
     [ApiController]
@@ -25,6 +27,7 @@ namespace BLWebServer1.Server.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
@@ -32,9 +35,24 @@ namespace BLWebServer1.Server.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                UserName = User.Identity?.Name ?? string.Empty
             })
             .ToArray();
+        }
+
+        [HttpGet("{date}")]
+        [Authorize]
+        public WeatherForecast Get(DateTime date)
+        {
+            var rng = new Random();
+            return new WeatherForecast
+            {
+                Date = date,
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                UserName = User.Identity?.Name ?? string.Empty
+            };
         }
     }
 }

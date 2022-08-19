@@ -11,7 +11,7 @@ using BLWebServer1.Shared;
 
 namespace BLWebServer1.Server.Controllers
 {
-    [Route("api/[controller]")]
+   
     [ApiController]
     public class AuthController : ControllerBase
     {
