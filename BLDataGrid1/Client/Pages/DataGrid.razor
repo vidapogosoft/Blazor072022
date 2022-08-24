@@ -1,0 +1,61 @@
+﻿@page "/datagrid"
+@using BLDataGrid1.Shared
+@inject HttpClient Http
+@using BLDataGrid1.Client.Components
+
+
+<h1>Customers</h1>
+
+@if (custs == null)
+{
+    <p><em>Loading...</em></p>
+}
+
+<DataGridComponent ParentClassName="table-responsive" TableClassName="table table-hover table-striped" 
+                   HideColumns="id" Items="custs" DataKeyColumn="id"></DataGridComponent>
+
+<form class="mt-5" onsubmit="return false;">
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="vipCheck" @bind-value="customer.vip">
+        <label class="form-check-label" for="vipCheck">VIP?</label>
+    </div>
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Name</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="customer.name" />
+    </div>
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Address</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="customer.address" />
+    </div>
+    <div class="input-group input-group-md mb-2">
+        <span class="input-group-text">Zip</span>
+        <input type="text" class="form-control" autocomplete="off" required @bind-value="customer.zip" />
+        <button class="btn btn-success" @onclick="Add">Add</button>
+    </div>
+</form>
+
+@code {
+
+    private List<Customer> custs;
+    private Customer customer = new Customer();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        custs = await Http.GetFromJsonAsync<List<Customer>>("/api/customers");
+
+    }
+
+    private async Task Add()
+    {
+        using (var msg = await Http.PostAsJsonAsync<Customer>("/api/customers", customer, System.Threading.CancellationToken.None))
+        {
+            if (msg.IsSuccessStatusCode)
+            {
+                custs.Add(await msg.Content.ReadFromJsonAsync<Customer>());
+            }
+        }
+    }
+
+}

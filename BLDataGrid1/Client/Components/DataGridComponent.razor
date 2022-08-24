@@ -1,0 +1,153 @@
+﻿@typeparam TItem
+@using System.Reflection
+
+@if (Items != null)
+{
+    <div class="@ParentClassName">
+        @if (info != null && info.Length > 0)
+        {
+            <table class="@TableClassName">
+                <thead>
+                    <tr>
+                        @foreach (var member in info)
+                        {
+                            if (member.MemberType == MemberTypes.Property && !hideColumns.Contains(member.Name))
+                            {
+                                <th><a href="javascript:;" @onclick="@(()=>Sort(member.Name))">@member.Name</a></th>
+                            }
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int index = 0; index < Items.Count; index++)
+                    {
+                        var item = Items[index];
+                        var key = GetDataKey(item);
+                        <tr data-index="@index">
+                            @foreach (var member in info)
+                            {
+                                if (member.MemberType == MemberTypes.Property && !hideColumns.Contains(member.Name))
+                                {
+                                    <td data-key="@key">@item.GetType().GetProperty(member.Name).GetValue(item)</td>
+                                }
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+}
+
+@code {
+
+    [Parameter]
+    public List<TItem> Items { get; set; }
+
+    [Parameter]
+    public string ParentClassName { get; set; }
+
+    [Parameter]
+    public string TableClassName { get; set; }
+
+    private string[] hideColumns = { };
+    [Parameter]
+    public string HideColumns
+    {
+        get
+        {
+            return string.Join(',', hideColumns);
+        }
+
+        set
+        {
+            hideColumns = value.Split(',');
+        }
+    }
+
+    [Parameter]
+    public string DataKeyColumn { get; set; }
+
+    private MemberInfo[] info;
+
+    private string GetDataKey(TItem item)
+    {
+        if (!string.IsNullOrEmpty(DataKeyColumn))
+        {
+            foreach (var member in info)
+            {
+                if (member.MemberType == MemberTypes.Property && member.Name == DataKeyColumn)
+                    return item.GetType().GetProperty(member.Name).GetValue(item).ToString();
+            }
+        }
+        return string.Empty;
+    }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+        if (Items != null && Items.Count > 0)
+        {
+            Type type = Items[0].GetType();
+            info = type.GetMembers();
+        }
+    }
+    private string sortedField;
+    private bool descending = true;
+    private void Sort(string field)
+    {
+        if (sortedField == field)
+            descending = !descending;
+        sortedField = field;
+        if (descending)
+        {
+            Items.Sort((a, b) =>
+            {
+                var obj = typeof(TItem).GetProperty(field).GetValue(a);
+                if (obj is DateTime)
+                {
+                    DateTime dta = (DateTime)typeof(TItem).GetProperty(field).GetValue(a);
+                    DateTime dtb = (DateTime)typeof(TItem).GetProperty(field).GetValue(b);
+                    return dta.ToString("yyyyMMddHHmmssfff").CompareTo(dtb.ToString("yyyyMMddHHmmssfff"));
+                }
+                else if (obj is byte || obj is sbyte || obj is short || obj is ushort || obj is int)
+                {
+                    int ia = (int)typeof(TItem).GetProperty(field).GetValue(a);
+                    int ib = (int)typeof(TItem).GetProperty(field).GetValue(b);
+                    return ia - ib;
+                }
+                else
+                {
+                    var ta = typeof(TItem).GetProperty(field).GetValue(a);
+                    var tb = typeof(TItem).GetProperty(field).GetValue(b);
+                    return ta.ToString().CompareTo(tb.ToString());
+                }
+            });
+        }
+        else
+        {
+            Items.Sort((b, a) =>
+            {
+                var obj = typeof(TItem).GetProperty(field).GetValue(a);
+                if (obj is DateTime)
+                {
+                    DateTime dta = (DateTime)typeof(TItem).GetProperty(field).GetValue(a);
+                    DateTime dtb = (DateTime)typeof(TItem).GetProperty(field).GetValue(b);
+                    return dta.ToString("yyyyMMddHHmmssfff").CompareTo(dtb.ToString("yyyyMMddHHmmssfff"));
+                }
+                else if (obj is byte || obj is sbyte || obj is short || obj is ushort || obj is int)
+                {
+                    int ia = (int)typeof(TItem).GetProperty(field).GetValue(a);
+                    int ib = (int)typeof(TItem).GetProperty(field).GetValue(b);
+                    return ia - ib;
+                }
+                else
+                {
+                    var ta = typeof(TItem).GetProperty(field).GetValue(a);
+                    var tb = typeof(TItem).GetProperty(field).GetValue(b);
+                    return ta.ToString().CompareTo(tb.ToString());
+                }
+            });
+        }
+    }
+}
