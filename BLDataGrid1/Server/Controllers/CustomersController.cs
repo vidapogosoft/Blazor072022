@@ -77,6 +77,10 @@ namespace BLDataGrid1.Server.Controllers
 					cust.address = string.Empty;
 				else
 					cust.address = cust.address.Substring(0, cust.address.Length > 100 ? 100 : cust.address.Length);
+				if (cust.age == null)
+					cust.age = string.Empty;
+				else
+					cust.age = cust.age.Substring(0, cust.age.Length > 10 ? 10 : cust.age.Length);
 				if (cust.zip == null)
 					cust.zip = string.Empty;
 				else
