@@ -1,0 +1,154 @@
+﻿@page "/"
+@inject HttpClient Http
+@using BLUploadFiles.Shared
+
+
+<h1>Compress and Upload Files</h1>
+
+<div class="input-group">
+    <div class="custom-file">
+        <InputFile class="custom-file-input" multiple OnChange="OnChange" id="inputFile" />
+        <label class="custom-file-label" for="inputFile">Choose and compress file(s) for upload</label>
+    </div>
+    <div class="input-group-append">
+        <button class="btn btn-success" @onclick="Upload" disabled="@isDisabled">Upload</button>
+    </div>
+</div>
+
+<div class="container-fluid my-3">
+    <h5>@message</h5>
+</div>
+
+
+<ul class="list-group">
+    @foreach (var file in files)
+    {
+        <li class="list-group-item">
+            @file.fileName
+            @if ((file.state & 4) != 0 | (file.state & 2) != 0)
+            {
+                if ((file.state & 4) != 0)
+                {
+                    <span class="text-success mx-1">(&#9989; stored @System.Text.Encoding.UTF8.GetBytes(System.Text.Json.JsonSerializer.Serialize(file.base64string)).Length bytes)</span>
+                }
+                if ((file.state & 2) != 0)
+                {
+                    <span class="text-success mx-1">(&#9989; compressed original=@file.originalSize, compressed=@file.compressedSize)</span>
+                }
+            }
+            else if ((file.state & 1) != 0)
+            {
+                <div class="spinner-grow spinner-grow-sm text-warning mx-1" role="status">
+                    <span class="sr-only">processing...</span>
+                </div>
+            }
+            else
+            {
+                <span class="text-primary mx-1">&#8987; waiting...</span>
+            }
+        </li>
+    }
+</ul>
+
+@code {
+    List<FileX> files = new List<FileX>();
+    bool isDisabled = true, selectFilesOk = true;
+    string message;
+
+
+    async Task OnChange(InputFileChangeEventArgs e)
+    {
+        message = string.Empty;
+
+        if (!selectFilesOk)
+            return;
+
+        IReadOnlyList<IBrowserFile> bfiles = default(IReadOnlyList<IBrowserFile>);
+        int index = -1;
+
+        try
+        {
+
+            bfiles = e.GetMultipleFiles();
+
+            for (index = 0; index < bfiles.Count; index++)
+            {
+                var f = new FileX { buffer = new byte[bfiles[index].Size], contentType = bfiles[index].ContentType, fileName = bfiles[index].Name };
+                using (var stream = bfiles[index].OpenReadStream(8576747))
+                {
+                    await stream.ReadAsync(f.buffer);
+                }
+                files.Add(f);
+            }
+
+            index = -1;
+            StateHasChanged();
+            var tasks = new List<Task>();
+
+            foreach (var file in files)
+            {
+
+                if (file.state == 0)
+                {
+
+                    Task task = Task.Run(async () =>
+                    {
+
+                        file.state |= 1;
+
+                        file.originalSize = file.buffer.Length;
+                        StateHasChanged();
+
+                        if (file.IsOkToCompress())
+                        {
+                            file.buffer = await Compressor.CompressBytesAsync(file.buffer);
+                            file.compressedSize = file.buffer.Length;
+                            file.state |= 2;
+                            StateHasChanged();
+                        }
+
+                        file.base64string = Convert.ToBase64String(file.buffer);
+                        file.state |= 4;
+                        StateHasChanged();
+
+                    });
+
+                    tasks.Add(task);
+
+                }
+
+            }
+
+            await Task.WhenAll(tasks);
+
+        }
+        catch (Exception ex)
+        {
+
+            message = ex.Message;
+            if (index > -1) // could've just used another try block inside the above try block!
+                message += " (" + bfiles[index].Name + ")";
+
+        }
+
+        isDisabled = false; // enable the upload button
+        selectFilesOk = true; // allow adding more files
+
+    }
+
+
+    async Task Upload()
+    {
+        isDisabled = true;
+        using (var msg = await Http.PostAsJsonAsync<List<FileX>>("/api/upload", files, System.Threading.CancellationToken.None))
+        {
+            isDisabled = false;
+            if (msg.IsSuccessStatusCode)
+            {
+                message = $"{files.Count} files uploaded";
+                files.Clear();
+            }
+        }
+    }
+
+}
