@@ -1,0 +1,20 @@
+﻿@page "/counter"
+@using BLComponent.Componentes
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+
+<PersonalProfileVariable Telefono="+593960547785"></PersonalProfileVariable>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
