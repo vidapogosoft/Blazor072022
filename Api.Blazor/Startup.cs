@@ -11,7 +11,9 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Api.Blazor.Interfaces.Registro;
+using Api.Blazor.Interfaces.auth;
 using Api.Blazor.Services.Registro;
+using Api.Blazor.Services.auth;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -21,6 +23,8 @@ namespace Api.Blazor
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,6 +36,20 @@ namespace Api.Blazor
         public void ConfigureServices(IServiceCollection services)
         {
             var key = "Register Token ApiKey auth";
+
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:5000", "https://localhost:5001",
+                                           "http://localhost:33208", "http://localhost:33208/register")
+                                      .AllowAnyOrigin()
+                                      .AllowAnyHeader()
+                                       .AllowAnyMethod();
+                                  });
+            });
 
             services.AddControllers();
 
@@ -62,6 +80,10 @@ namespace Api.Blazor
 
             services.AddAuthorization();
 
+            //Servicio verificador y creador de TOKEN JWT
+            services.AddSingleton<IJwtAuthenticationService>(new JwtAuthenticationService(key));
+
+
             services.AddSingleton<IDataRepositoryDatosPersonales, ServicesDatosPersonales>();
             services.AddSingleton<IDataRepositoryDatosContacto, ServicesDatosContacto>();
             services.AddSingleton<IDataRepositoryDatosEducacion, ServicesDatosEducacion>();
@@ -78,6 +100,8 @@ namespace Api.Blazor
             }
 
             app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseAuthentication();
 

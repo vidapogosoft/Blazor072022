@@ -7,10 +7,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using UIidentity.Repository;
-using UIidentity.Services;
 
-namespace UIidentity
+namespace Web.Client
 {
     public class Program
     {
@@ -19,20 +17,9 @@ namespace UIidentity
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-            ConfigureServices(builder.Services);
-
-            builder.Services.AddSingleton<Auth>();
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
             await builder.Build().RunAsync();
-        }
-
-        private static void ConfigureServices(IServiceCollection services)
-        {
-            services.AddSingleton<IHttpService, HttpService>();
-            services.AddSingleton<IAuth, Auth>();
-            services.AddAuthorizationCore();
         }
     }
 }

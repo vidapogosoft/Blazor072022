@@ -10,6 +10,15 @@ namespace Api.Blazor.Data.Registro
     public class DataRepositoryDatosContacto
     {
 
+        public void Registro(RegistroInicial item)
+        {
+            using (var context = new dbblazorContext())
+            {
+                context.RegistroInicials.Add(item);
+                context.SaveChanges();
+            }
+        }
+
         public void PostDatosContacto(DatosContacto item)
         {
             using (var context = new dbblazorContext())

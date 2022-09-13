@@ -1,4 +1,12 @@
 ﻿@page "/"
+
+@inject HttpClient Http
+@inject NavigationManager nav
+@inject UIidentity.Repository.IAuth authservices
+
+@using System.Text.Json
+@using System.Text
+
 <!-- auth-page wrapper -->
 <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
     <div class="bg-overlay"></div>
@@ -59,11 +67,11 @@
                                     </div>
 
                                     <div class="mt-4">
-                                        <form action="index.html">
+                                        <form>
 
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                                <input @bind="auth.Username" type="text" class="form-control" id="username" placeholder="Enter username">
                                             </div>
 
                                             <div class="mb-3">
@@ -72,8 +80,8 @@
                                                 </div>
                                                 <label class="form-label" for="password-input">Password</label>
                                                 <div class="position-relative auth-pass-inputgroup mb-3">
-                                                    <input type="password" class="form-control pe-5" placeholder="Enter password" id="password-input">
-                                                    <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted shadow-none" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                    <input @bind="auth.Password" type="password" class="form-control pe-5" placeholder="Enter password" id="password-input">
+                                                    
                                                 </div>
                                             </div>
 
@@ -83,7 +91,7 @@
                                             </div>
 
                                             <div class="mt-4">
-                                                <button class="btn btn-success w-100" type="submit">Sign In</button>
+                                                <button @onclick="@Login" class="btn btn-success w-100" type="submit">Sign In</button>
                                             </div>
 
 
@@ -125,3 +133,27 @@
     <!-- end Footer -->
 </div>
 <!-- end auth-page-wrapper -->
+
+@code
+{
+    Model.AuthInfo auth = new Model.AuthInfo();
+
+    private async Task Login()
+    {
+
+        var userToken = await authservices.Login(auth);
+
+        Console.WriteLine(userToken.TokenValue);
+
+        ////nav.NavigateTo($"http://localhost:50087/{result.TokenValue}", forceLoad: true);
+        if (string.IsNullOrEmpty(userToken.TokenValue))
+        {
+            nav.NavigateTo("/welcome");
+        }
+
+        
+
+     }
+
+
+}

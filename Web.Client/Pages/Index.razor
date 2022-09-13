@@ -1,0 +1,16 @@
+﻿@page "/{token}"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<label class="control-label">@token</label>
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+
+    [Parameter]
+    public string token { get; set; }
+
+}

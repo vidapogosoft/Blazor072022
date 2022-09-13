@@ -9,11 +9,17 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Model.Blazor.Models.Database;
+using Api.Blazor.Data.Registro;
+using Api.Blazor.Models.DTO;
+
 
 namespace Api.Blazor.Services.auth
 {
     public class JwtAuthenticationService : IJwtAuthenticationService
     {
+        public DataRepositoryDatosContacto data = new DataRepositoryDatosContacto();
+
         private readonly string _key;
 
         public JwtAuthenticationService(string key)
@@ -23,7 +29,12 @@ namespace Api.Blazor.Services.auth
         }
 
 
-        public string Authenticate(string username, string password)
+        public void Registro(RegistroInicial item)
+        {
+            data.Registro(item);
+        }
+
+        public Token Authenticate(string username, string password)
         {
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(username)
             || username != "register" || password != "data.register")
@@ -49,7 +60,10 @@ namespace Api.Blazor.Services.auth
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return tokenHandler.WriteToken(token);
+            Token tk = new Token();
+            tk.TokenValue = tokenHandler.WriteToken(token);
+
+            return tk;
 
         }
     }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using Api.Blazor.Interfaces.auth;
 using Api.Blazor.Models.DTO;
+using Model.Blazor.Models.Database;
 
 using Microsoft.AspNetCore.Authorization;
 
@@ -37,6 +38,30 @@ namespace Api.Blazor.Controllers
             }
 
             return Ok(token);
+
+        }
+
+        [AllowAnonymous]
+        [HttpPost("register")]
+        public IActionResult Register([FromBody] RegistroInicial user)
+        {
+            try
+            {
+
+                if (user == null || !ModelState.IsValid)
+                {
+                    return BadRequest("Error: Envio de datos");
+                }
+
+                _authService.Registro(user);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("Error:" + ex.Message);
+            }
+
+            return Ok();
 
         }
 

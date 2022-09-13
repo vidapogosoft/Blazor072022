@@ -1,4 +1,8 @@
 ﻿@page "/register"
+
+@inject HttpClient Http
+@inject NavigationManager nav
+
 <!-- auth-page wrapper -->
 <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
     <div class="bg-overlay"></div>
@@ -85,7 +89,7 @@
 
                                             <div class="mb-3">
                                                 <label for="correoUsuario" class="form-label">Email <span class="text-danger">*</span></label>
-                                                <input type="email" class="form-control" id="correoUsuario" placeholder="Ingresa una dirección de email" required>
+                                                <input @bind="registrado.Email" type="email" class="form-control" id="correoUsuario" placeholder="Ingresa una dirección de email" required>
                                                 <div class="invalid-feedback">
                                                     Por favor ingresa una dirección de email.
                                                 </div>
@@ -93,7 +97,7 @@
 
                                             <div class="mb-2">
                                                 <label for="contrasenaUsuario" class="form-label">Contraseña <span class="text-danger">*</span></label>
-                                                <input type="password" class="form-control" id="userpassword" placeholder="Ingresa una contraseña" required>
+                                                <input @bind="registrado.Contrasena" type="password" class="form-control" id="userpassword" placeholder="Ingresa una contraseña" required>
                                                 <div class="invalid-feedback">
                                                     Por favor ingresa una contraseña.
                                                 </div>
@@ -149,6 +153,9 @@
 
     private async Task Registrar()
     {
+        await Http.PostAsJsonAsync("http://localhost:25636/api/Token/register", registrado);
+
+        nav.NavigateTo("/welcome");
 
     }
 

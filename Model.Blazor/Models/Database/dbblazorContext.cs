@@ -22,6 +22,7 @@ namespace Model.Blazor.Models.Database
         public virtual DbSet<DatosIdioma> DatosIdiomas { get; set; }
         public virtual DbSet<DatosLaboral> DatosLaborals { get; set; }
         public virtual DbSet<DatosPersonale> DatosPersonales { get; set; }
+        public virtual DbSet<RegistroInicial> RegistroInicials { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -218,6 +219,46 @@ namespace Model.Blazor.Models.Database
                     .IsUnicode(false);
 
                 entity.Property(e => e.NombresCompletos)
+                    .HasMaxLength(400)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UsuarioModificacion)
+                    .HasMaxLength(400)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UsuarioRegistro)
+                    .HasMaxLength(400)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<RegistroInicial>(entity =>
+            {
+                entity.HasKey(e => e.IdRegistro)
+                    .HasName("PK__Registro__FFA45A99CA29E461");
+
+                entity.ToTable("RegistroInicial");
+
+                entity.Property(e => e.Apellidos)
+                    .HasMaxLength(400)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Contrasena)
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(400)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Estado)
+                    .HasMaxLength(25)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FechaModificacion).HasColumnType("datetime");
+
+                entity.Property(e => e.FechaRegistro).HasColumnType("datetime");
+
+                entity.Property(e => e.Nombre)
                     .HasMaxLength(400)
                     .IsUnicode(false);
 
